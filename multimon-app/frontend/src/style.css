@@ -95,15 +95,42 @@ iframe {
     background: white;
 }
 
-#dragArea {
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0.5) !important;
+.dragArea {
+    /* background-color: rgba(30, 255, 0, 0.5); */
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 100;
-    width: 100%;
-    height: 30px;
-    cursor: move;
     user-select: none;
+}
+
+.dragArea.top, .dragArea.bottom {
+  height: 10px;
+  left: 0;
+  width: 100%;
+  cursor: ns-resize;
+}
+
+.dragArea.bottom {
+  bottom: 0;
+}
+
+.dragArea.top, .dragArea.left, .dragArea.right {
+  top: 0;
+}
+
+.dragArea.left, .dragArea.right {
+  height: 100%;
+  width: 10px;
+}
+
+.dragArea.right {
+  right: 0;
+}
+
+.dragArea.move {
+  cursor: move;
+  /* background-color: rgb(230, 0, 255); */
+  height: 20px;
+  width: 100%;
+  z-index: 100000000;
+  top: 10px;
 }

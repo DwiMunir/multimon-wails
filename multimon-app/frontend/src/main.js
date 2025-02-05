@@ -9,6 +9,7 @@ document.querySelector('#app').innerHTML = `
           src="https://cxds-player.mdevoffice.net" 
           id="webview" 
           frameborder="0" 
+          sandbox="allow-scripts allow-same-origin allow-forms"
           allowfullscreen>
         </iframe>
       </div>
@@ -39,7 +40,7 @@ let isDragging = false;
 let offsetX = 0;
 let offsetY = 0;
 
-const dragArea = document.getElementById("dragArea");
+const dragArea = document.getElementsByClassName("dragArea");
 
 dragArea.addEventListener("mousedown", (event) => {
   isDragging = true;

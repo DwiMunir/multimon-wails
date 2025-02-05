@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
@@ -19,7 +20,7 @@ func NewApp() *App {
 // so we can call the runtime methods
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
-	
+
 	// Get all screens
 	screens, err := runtime.ScreenGetAll(ctx)
 	if err != nil {
@@ -30,14 +31,14 @@ func (a *App) startup(ctx context.Context) {
 	// Calculate total width and maximum height
 	var totalWidth int
 	var maxHeight int
-	
+
 	// Calculate dimensions
 	for _, screen := range screens {
 		// Add screen width to total
 		if screen.Size.Width > 0 {
 			totalWidth += screen.Size.Width
 		}
-		
+
 		// Keep track of maximum height
 		if screen.Size.Height > maxHeight {
 			maxHeight = screen.Size.Height
@@ -46,9 +47,9 @@ func (a *App) startup(ctx context.Context) {
 
 	// Set window size to cover all screens width
 	runtime.WindowSetSize(ctx, totalWidth, maxHeight)
-	
+
 	// Set window position to the primary display (0,0)
-	runtime.WindowSetPosition(ctx, 0, 0)
+	runtime.WindowSetPosition(ctx, 10, 10)
 
 	// Ensure window is always on top
 	runtime.WindowSetAlwaysOnTop(ctx, true)

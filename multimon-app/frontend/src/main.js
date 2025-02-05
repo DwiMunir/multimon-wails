@@ -34,3 +34,32 @@ window.runtime.EventsOn("show-message", (message) => {
     const result = document.getElementById('result');
     result.textContent = message;
 });
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+const dragArea = document.getElementById("dragArea");
+
+dragArea.addEventListener("mousedown", (event) => {
+  isDragging = true;
+  offsetX = event.clientX;
+  offsetY = event.clientY;
+});
+
+document.addEventListener("mousemove", (event) => {
+  if (isDragging) {
+    const deltaX = event.clientX - offsetX;
+    const deltaY = event.clientY - offsetY;
+
+    // Memindahkan jendela dengan moveBy
+    window.moveBy(deltaX, deltaY);
+
+    offsetX = event.clientX;
+    offsetY = event.clientY;
+  }
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});

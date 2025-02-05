@@ -39,12 +39,20 @@ func main() {
 		AlwaysOnTop:              true,
 		MinWidth:                 1280,
 		MinHeight:                720,
+		Fullscreen:               false,
 	}
 
 	// Platform specific options
 	if runtime.GOOS == "darwin" {
 		appOptions.Mac = &mac.Options{
-			TitleBar:             mac.TitleBarHidden(),
+			TitleBar: &mac.TitleBar{
+				TitlebarAppearsTransparent: true,
+				HideTitle:                  false,
+				HideTitleBar:               false,
+				FullSizeContent:            false,
+				UseToolbar:                 false,
+				HideToolbarSeparator:       true,
+			},
 			WebviewIsTransparent: true,
 			WindowIsTranslucent:  true,
 		}

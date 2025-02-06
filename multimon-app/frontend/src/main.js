@@ -1,21 +1,23 @@
 import './style.css';
 import { Greet, ShowMessage } from '../wailsjs/go/main/App';
 
-document.querySelector('#app').innerHTML = `
-  <div class="container">
-    <div class="content">
-      <div class="webview-container">
-        <iframe 
-          src="https://cxds-player.mdevoffice.net" 
-          id="webview" 
-          frameborder="0" 
-          sandbox="allow-scripts allow-same-origin allow-forms"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-`
+// document.querySelector('#app').innerHTML = `
+//   <div class="container">
+//     <div class="content">
+//       <div class="webview-container">
+//         <iframe 
+//           src="https://cxds-player.mdevoffice.net" 
+//           id="webview" 
+//           frameborder="0" 
+//           sandbox="allow-scripts allow-same-origin allow-forms"
+//           allowfullscreen>
+//         </iframe>
+//       </div>
+//     </div>
+//   </div>
+// `
+
+document.location.href = 'https://cxds-player.mdevoffice.net';
 
 // Setup event listeners
 document.getElementById('greet').addEventListener('click', async () => {
